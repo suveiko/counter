@@ -1,0 +1,21 @@
+.counter {
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    background: rgba(14, 211, 215, 0.6);
+    color: #12122a;
+    height: 20px;
+}
+
+.error {
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    background: rgba(14, 211, 215, 0.6);
+    color: #940101;
+    height: 20px;
+}

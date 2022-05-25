@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    border: solid 2px #0ed3d7;
+
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.button {
+    font-family: Georgia, sans-serif;
+
+    margin-left: 3px;
+    border-radius: 5px;
+    width: 60px;
+
+    color: #12122a;
+    background: rgba(14, 211, 215, 0.6);
+
+    cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    background: rgba(14, 211, 215, 0.8);
+}
+
+.button:active {
+    box-shadow: none;
+    background: rgba(14, 211, 215, 1);
+    transform: translateY(0.1em);
+}
+
+.disabled {
+    font-family: Georgia, sans-serif;
+    margin-left: 3px;
+    border-radius: 5px;
+    width: 60px;
+
+    cursor: pointer;
+    border: none;
+
+    color: #12122a;
+    opacity: 0.3;
+
+    background: rgba(42, 99, 143, 0.75);
+}
