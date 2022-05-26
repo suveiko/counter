@@ -1,21 +1,37 @@
 import React from 'react';
 import s from './Button.module.css'
+import {ButtonCounter} from "./buttonCounter/ButtonCounter";
 
 type ButtonType = {
     counter: number
     callBackInc: () => void
     callBackReset: () => void
+    minValue: number
+    maxValue: number
 }
 
-function Button({counter, callBackInc, callBackReset}: ButtonType) {
+function Button({counter, callBackInc, callBackReset, minValue, maxValue}: ButtonType) {
 
-    const incButtonStyle = `${counter === 5 ? s.disabled : s.button}`
-    const resetButtonStyle = `${counter === 0 ? s.disabled : s.button}`
+    const incButtonStyle = `${counter === maxValue ? s.disabled : s.button}`
+    const resetButtonStyle = `${counter === minValue ? s.disabled : s.button}`
+
+    const disabledIncButton = counter === maxValue
+    const disabledResetButton = counter === minValue
 
     return (
         <div className={s.container}>
-            <button className={incButtonStyle} onClick={callBackInc} disabled={counter === 5}>inc</button>
-            <button className={resetButtonStyle} onClick={callBackReset} disabled={counter === 0}>reset</button>
+            <ButtonCounter
+                className={incButtonStyle}
+                onClick={callBackInc}
+                disabled={disabledIncButton}
+                name='inc'
+            />
+            <ButtonCounter
+                className={resetButtonStyle}
+                onClick={callBackReset}
+                disabled={disabledResetButton}
+                name='reset'
+            />
         </div>
     )
 }
