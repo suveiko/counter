@@ -1,20 +1,22 @@
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
 
     border: solid 2px #0ed3d7;
 
-    padding: 10px;
+    padding: 25px;
     border-radius: 20px;
 }
 
 .button {
     font-family: Georgia, sans-serif;
+    font-size: 20px;
 
-    margin-left: 3px;
-    border-radius: 5px;
-    width: 60px;
+    margin-left: 8px;
+    border-radius: 7px;
+    width: 80px;
+    height: 30px;
 
     color: #12122a;
     background: rgba(14, 211, 215, 0.6);
@@ -35,10 +37,12 @@
 
 .disabled {
     font-family: Georgia, sans-serif;
-    margin-left: 3px;
-    border-radius: 5px;
-    width: 60px;
+    font-size: 20px;
 
+    margin-left: 8px;
+    border-radius: 7px;
+    width: 80px;
+    height: 30px;
     cursor: pointer;
     border: none;
 

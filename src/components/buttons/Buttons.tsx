@@ -1,6 +1,6 @@
 import React from 'react';
-import s from './Button.module.css'
-import {ButtonCounter} from "./buttonCounter/ButtonCounter";
+import s from './Buttons.module.css'
+import {UniversalButton} from "./buttonCounter/universalButton/UniversalButton";
 
 type ButtonType = {
     counter: number
@@ -10,7 +10,7 @@ type ButtonType = {
     maxValue: number
 }
 
-function Button({counter, callBackInc, callBackReset, minValue, maxValue}: ButtonType) {
+function Buttons({counter, callBackInc, callBackReset, minValue, maxValue}: ButtonType) {
 
     const incButtonStyle = `${counter === maxValue ? s.disabled : s.button}`
     const resetButtonStyle = `${counter === minValue ? s.disabled : s.button}`
@@ -20,13 +20,14 @@ function Button({counter, callBackInc, callBackReset, minValue, maxValue}: Butto
 
     return (
         <div className={s.container}>
-            <ButtonCounter
+
+            <UniversalButton
                 className={incButtonStyle}
                 onClick={callBackInc}
                 disabled={disabledIncButton}
                 name='inc'
             />
-            <ButtonCounter
+            <UniversalButton
                 className={resetButtonStyle}
                 onClick={callBackReset}
                 disabled={disabledResetButton}
@@ -36,4 +37,4 @@ function Button({counter, callBackInc, callBackReset, minValue, maxValue}: Butto
     )
 }
 
-export default Button
+export default Buttons

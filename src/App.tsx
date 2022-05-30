@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import './App.css';
-import Counter from "./components/counter/Counter";
-import Button from "./components/buttons/Buttons";
+import {BoardCount} from "./components/boardcount/BoardCount";
+import {SettingsCounter} from "./SettingsCounter";
 
 function App() {
-    const maxValue = 15
-    const minValue = 10
+    const [minValue, setMinValue] = useState(0)
+    const [maxValue, setMaxValue] = useState(5)
+    const [counter, setCounter] = useState(minValue)
 
-    const [counter, setCounter] = useState<number>(minValue)
 
     const incButton = () => {
         if (maxValue === counter) return
@@ -15,16 +15,34 @@ function App() {
     }
     const resetButton = () => setCounter(minValue)
 
+    const changeMaxValue = () => {
+        setMaxValue(maxValue + 1)
+    }
+
+    const changeMinValue = () => {
+        if (minValue === maxValue) return
+        setMinValue(minValue + 1)
+    }
+
     return (
-        <div className="App">
-            <Counter counter={counter} maxValue={maxValue}/>
-            <Button
-                callBackInc={incButton}
-                callBackReset={resetButton}
-                counter={counter}
-                minValue={minValue}
-                maxValue={maxValue}
-            />
+        <div className='App'>
+            <div className="btn">
+                <BoardCount
+                    counter={counter}
+                    callBackInc={incButton}
+                    callBackReset={resetButton}
+                    minValue={minValue}
+                    maxValue={maxValue}
+                />
+            </div>
+            <div className="btn">
+                <SettingsCounter
+                    maxValue={maxValue}
+                    minValue={minValue}
+                    changeMaxValue={changeMaxValue}
+                    changeMinValue={changeMinValue}
+                />
+            </div>
         </div>
     );
 }
