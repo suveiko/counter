@@ -1,0 +1,32 @@
+.button {
+    font-family: Georgia, sans-serif;
+    font-size: 20px;
+
+    margin-left: 8px;
+    border-radius: 7px;
+    width: 80px;
+    height: 30px;
+
+    color: #12122a;
+    background: rgba(14, 211, 215, 0.6);
+
+    cursor: pointer;
+    border: none;
+}
+
+.button:hover {
+    background: rgba(14, 211, 215, 0.8);
+}
+
+.button:active {
+    box-shadow: none;
+    background: rgba(14, 211, 215, 1);
+    transform: translateY(0.1em);
+}
+
+.button:disabled {
+    color: #12122a;
+    opacity: 0.3;
+
+    background: rgba(42, 99, 143, 0.75);
+}

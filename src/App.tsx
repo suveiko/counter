@@ -1,18 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {BoardCount} from "./components/boardcount/BoardCount";
-import {SettingsCounter} from "./SettingsCounter";
+import {BoardCount} from "./components/BoardCount/BoardCount";
+import {SettingsCounter} from "./components/SettingsCounter/SettingsCounter";
+
+export  type StatusType = 'counter' | 'set' | 'error'
 
 function App() {
+    const minValueKey = 'minValue'
+    const maxValueKey = 'maxValue'
+
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(5)
     const [counter, setCounter] = useState(minValue)
-    const [status, setStatus] = useState('counter')
+    const [status, setStatus] = useState<StatusType>('counter')
 
 
     // const incButton = () => {
-    //     if (maxValue === counter) return
-    //     setCounter(counter + 1)
+    //     if (maxValue === Counter) return
+    //     setCounter(Counter + 1)
     // }
     // const resetButton = () => setCounter(minValue)
     //
@@ -25,29 +30,31 @@ function App() {
     //     setMinValue(minValue + 1)
     // }
     useEffect(() => {
-        let startValueAsString = localStorage.getItem('startValue')
-        if (startValueAsString) {
-            let newStartValue = JSON.parse(startValueAsString)
-            setMinValue(newStartValue)
-        }
-        let maxValueAsString = localStorage.getItem('maxValue')
-        if (maxValueAsString) {
-            let newMaxValue = JSON.parse(maxValueAsString)
-            setMaxValue(newMaxValue)
-        }
+        let minValueAsString = localStorage.getItem(minValueKey)
+        minValueAsString && setMinValue(JSON.parse(minValueAsString))
+
+        let maxValueAsString = localStorage.getItem(maxValueKey)
+        maxValueAsString && setMaxValue(JSON.parse(maxValueAsString))
     }, [])
 
     useEffect(() => {
-        localStorage.setItem('startValue', JSON.stringify(minValue))
-        localStorage.setItem('maxValue', JSON.stringify(maxValue))
-    }, [minValue, maxValue])
+        localStorage.setItem(minValueKey, JSON.stringify(minValue))
+        localStorage.setItem(maxValueKey, JSON.stringify(maxValue))
+        localStorage.setItem('status', JSON.stringify(status))
+    }, [minValue, maxValue, status])
 
 
     const incButton = () => counter < maxValue && setCounter(counter + 1)
     const resetButton = () => setCounter(minValue)
 
-    const changeMinValue = (value: number) => setMinValue(value)
-    const changeMaxValue = (value: number) => setMaxValue(value)
+    const changeMinValue = (value: number) => {
+        setMinValue(value)
+        setStatus('set')
+    }
+    const changeMaxValue = (value: number) => {
+        setMaxValue(value)
+        setStatus('set')
+    }
 
     return (
         <div className='App'>
@@ -58,6 +65,7 @@ function App() {
                     callBackReset={resetButton}
                     minValue={minValue}
                     maxValue={maxValue}
+                    status={status}
                 />
             </div>
             <div className="desk">
@@ -67,6 +75,8 @@ function App() {
                     minValue={minValue}
                     changeMaxValue={changeMaxValue}
                     changeMinValue={changeMinValue}
+                    // setStatus={setStatus}
+                    // status={status}
                 />
             </div>
         </div>

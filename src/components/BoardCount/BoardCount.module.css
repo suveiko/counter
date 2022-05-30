@@ -35,7 +35,7 @@
     transform: translateY(0.1em);
 }
 
-.disabled {
+.button:disabled {
     font-family: Georgia, sans-serif;
     font-size: 20px;
 
