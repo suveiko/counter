@@ -39,7 +39,7 @@ export const SettingsCounter = ({
         <div className={s.desk}>
             <div className={s.settings}>
                 <div className={error}>
-                    <span style={{color: 'white'}}>Min Value:</span>
+                    <span className={s.inputName}>Min Value:</span>
                     <UniversalInput
                         value={minValue}
                         changeValue={changeMinValue}
@@ -50,7 +50,7 @@ export const SettingsCounter = ({
 
             <div className={s.settings}>
                 <div className={error}>
-                    <span style={{color: 'white'}}>Max Value:</span>
+                    <span className={s.inputName}>Max Value:</span>
                     <UniversalInput
                         value={maxValue}
                         changeValue={changeMaxValue}
@@ -58,7 +58,7 @@ export const SettingsCounter = ({
                     />
                 </div>
             </div>
-            <UniversalButton
+                <UniversalButton
                 onClick={onChangeButtonHandler}
                 disabled={status !== 'set'} name='set'
             />

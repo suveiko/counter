@@ -20,17 +20,5 @@ function Counter({counter, maxValue, status}: CounterType) {
                 : <h1 className={counterStyle}>{counter}</h1>
     )
 }
-
 export default Counter
 
-// status === 'error' ?
-//     <div className={style.errorText}>
-//         Incorrect value!
-//     </div> :
-//     status === 'set' ?
-//         <div className={style.setText}>
-//             Enter values and press "SET"
-//         </div> :
-//         <div className={value === maxValue ? style.redText : style.classicText}>
-//             {value}
-//         </div>
