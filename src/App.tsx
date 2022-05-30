@@ -3,31 +3,30 @@ import './App.css';
 import {BoardCount} from "./components/BoardCount/BoardCount";
 import {SettingsCounter} from "./components/SettingsCounter/SettingsCounter";
 
-export  type StatusType = 'counter' | 'set' | 'error'
+export type StatusType = 'counter' | 'set' | 'error'
 
 function App() {
-    const minValueKey = 'minValue'
-    const maxValueKey = 'maxValue'
 
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(5)
     const [counter, setCounter] = useState(minValue)
-    const [status, setStatus] = useState<StatusType>('counter')
+    const [status, setStatus] = useState<StatusType>('set')
 
     useEffect(() => {
-        let minValueAsString = localStorage.getItem(minValueKey)
+        const minValueAsString = localStorage.getItem('minValue')
         minValueAsString && setMinValue(JSON.parse(minValueAsString))
 
-        let maxValueAsString = localStorage.getItem(maxValueKey)
+        const maxValueAsString = localStorage.getItem('maxValue')
         maxValueAsString && setMaxValue(JSON.parse(maxValueAsString))
     }, [])
 
-    useEffect(() => {
-        localStorage.setItem(minValueKey, JSON.stringify(minValue))
-        localStorage.setItem(maxValueKey, JSON.stringify(maxValue))
-        localStorage.setItem('status', JSON.stringify(status))
-    }, [minValue, maxValue, status])
-
+    const onChangeButtonHandler = () => {
+        localStorage.setItem('minValue', JSON.stringify(minValue))
+        localStorage.setItem('maxValue', JSON.stringify(maxValue))
+        localStorage.setItem('status', JSON.stringify('counter'))
+        setStatus('counter')
+        setCounter(minValue)
+    }
 
     const incButton = () => counter < maxValue && setCounter(counter + 1)
     const resetButton = () => setCounter(minValue)
@@ -52,7 +51,6 @@ function App() {
                 status={status}
             />
             <SettingsCounter
-                setCounter={setCounter}
                 counter={counter}
                 maxValue={maxValue}
                 minValue={minValue}
@@ -60,6 +58,7 @@ function App() {
                 changeMinValue={changeMinValue}
                 setStatus={setStatus}
                 status={status}
+                onChangeButtonHandler={onChangeButtonHandler}
             />
         </div>
     );

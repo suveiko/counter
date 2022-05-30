@@ -12,7 +12,7 @@ type SettingsCounterType = {
     counter: number
     setStatus: (status: StatusType) => void
     status: StatusType
-    setCounter: (minValue: number) => void
+    onChangeButtonHandler: () => void
 }
 
 export const SettingsCounter = ({
@@ -22,7 +22,7 @@ export const SettingsCounter = ({
                                     changeMinValue,
                                     setStatus,
                                     status,
-                                    setCounter
+                                    onChangeButtonHandler
                                 }: SettingsCounterType) => {
 
     const error = maxValue <= minValue ? s.settingsError : s.settings
@@ -30,10 +30,10 @@ export const SettingsCounter = ({
     if (maxValue <= minValue || minValue < 0) {
         setStatus('error')
     }
-    const onChangeButtonHandler = () => {
-        setStatus('counter')
-        setCounter(minValue)
-    }
+    // const onChangeButtonHandler = () => {
+    //     setStatus('counter')
+    //     setCounter(minValue)
+    // }
 
     return (
         <div className={s.desk}>
@@ -58,7 +58,7 @@ export const SettingsCounter = ({
                     />
                 </div>
             </div>
-                <UniversalButton
+            <UniversalButton
                 onClick={onChangeButtonHandler}
                 disabled={status !== 'set'} name='set'
             />
