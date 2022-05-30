@@ -21,12 +21,12 @@ export const BoardCount = ({counter, callBackInc, callBackReset, minValue, maxVa
                 <UniversalButton
                     onClick={callBackInc}
                     disabled={counter === maxValue || status === 'error' || status === 'set'}
-                    name={'inc'}
+                    name={'INC'}
                 />
                 <UniversalButton
                     onClick={callBackReset}
                     disabled={counter === minValue || status === 'error' || status === 'set'}
-                    name={'reset'}
+                    name={'RESET'}
                 />
             </div>
         </div>

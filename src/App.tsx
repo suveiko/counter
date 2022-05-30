@@ -7,22 +7,25 @@ export type StatusType = 'counter' | 'set' | 'error'
 
 function App() {
 
+    const minValueStatus = 'minValue'
+    const maxValueStatus = 'maxValue'
+
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(5)
     const [counter, setCounter] = useState(minValue)
     const [status, setStatus] = useState<StatusType>('set')
 
     useEffect(() => {
-        const minValueAsString = localStorage.getItem('minValue')
+        const minValueAsString = localStorage.getItem(minValueStatus)
         minValueAsString && setMinValue(JSON.parse(minValueAsString))
 
-        const maxValueAsString = localStorage.getItem('maxValue')
+        const maxValueAsString = localStorage.getItem(maxValueStatus)
         maxValueAsString && setMaxValue(JSON.parse(maxValueAsString))
     }, [])
 
     const onChangeButtonHandler = () => {
-        localStorage.setItem('minValue', JSON.stringify(minValue))
-        localStorage.setItem('maxValue', JSON.stringify(maxValue))
+        localStorage.setItem(minValueStatus, JSON.stringify(minValue))
+        localStorage.setItem(maxValueStatus, JSON.stringify(maxValue))
         localStorage.setItem('status', JSON.stringify('counter'))
         setStatus('counter')
         setCounter(minValue)

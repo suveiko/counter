@@ -30,10 +30,6 @@ export const SettingsCounter = ({
     if (maxValue <= minValue || minValue < 0) {
         setStatus('error')
     }
-    // const onChangeButtonHandler = () => {
-    //     setStatus('counter')
-    //     setCounter(minValue)
-    // }
 
     return (
         <div className={s.desk}>
@@ -60,7 +56,7 @@ export const SettingsCounter = ({
             </div>
             <UniversalButton
                 onClick={onChangeButtonHandler}
-                disabled={status !== 'set'} name='set'
+                disabled={status !== 'set'} name='SET'
             />
         </div>
     );

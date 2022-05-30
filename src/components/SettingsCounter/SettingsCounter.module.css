@@ -24,7 +24,7 @@
 }
 
 .settingsError {
-    color: red;
+    color: #940101;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
