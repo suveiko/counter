@@ -2,15 +2,17 @@ import React from 'react';
 import {UniversalButton} from "../UniversalButton/UniversalButton";
 import s from './SettingsCounter.module.css'
 import {UniversalInput} from "../UniversalInput/UniversalInput";
+import {StatusType} from "../../App";
 
-type SettingsCounter = {
+type SettingsCounterType = {
     maxValue: number
     minValue: number
     changeMaxValue: (value: number) => void
     changeMinValue: (value: number) => void
     counter: number
-    // setStatus: () => void
-    // status: StatusType
+    setStatus: (status: StatusType) => void
+    status: StatusType
+    setCounter: (minValue: number) => void
 }
 
 export const SettingsCounter = ({
@@ -18,61 +20,49 @@ export const SettingsCounter = ({
                                     maxValue,
                                     changeMaxValue,
                                     changeMinValue,
-                                    // setStatus,
-                                    // status
-                                }: SettingsCounter) => {
-    const error = maxValue <= minValue ? s.settingStringError : s.settingString
+                                    setStatus,
+                                    status,
+                                    setCounter
+                                }: SettingsCounterType) => {
+
+    const error = maxValue <= minValue ? s.settingsError : s.settings
+
+    if (maxValue <= minValue || minValue < 0) {
+        setStatus('error')
+    }
+    const onChangeButtonHandler = () => {
+        setStatus('counter')
+        setCounter(minValue)
+    }
+
     return (
-        <div className={s.setting}>
-            <div className={error}>
-                <span style={{color: 'white'}}>Min Value:</span>
-                <UniversalInput value={minValue} changeValue={changeMinValue} error={maxValue <= minValue}/>
-            </div>
-            <div className={error}>
-                <span style={{color: 'white'}}>Max Value:</span>
-                <UniversalInput value={maxValue} changeValue={changeMaxValue} error={maxValue <= minValue}/>
+        <div className={s.desk}>
+            <div className={s.settings}>
+                <div className={error}>
+                    <span style={{color: 'white'}}>Min Value:</span>
+                    <UniversalInput
+                        value={minValue}
+                        changeValue={changeMinValue}
+                        error={status === 'error'}
+                    />
+                </div>
             </div>
 
-            <UniversalButton  onClick={() => {
-            }} disabled={false} name='set'/>
+            <div className={s.settings}>
+                <div className={error}>
+                    <span style={{color: 'white'}}>Max Value:</span>
+                    <UniversalInput
+                        value={maxValue}
+                        changeValue={changeMaxValue}
+                        error={status === 'error'}
+                    />
+                </div>
+            </div>
+            <UniversalButton
+                onClick={onChangeButtonHandler}
+                disabled={status !== 'set'} name='set'
+            />
         </div>
     );
 };
 
-
-// <div className={style.setting}>
-//     <div className={style.values}>
-//         <div className={error}>
-//             <div className={style.inputName}>
-//                 MAX VALUE
-//             </div>
-//             <div>
-//                 <InputNumber callBack={ChangeMaxValue}
-//                              value={maxValue}
-//                              error={maxValue <= startValue}
-//                 />
-//             </div>
-//         </div>
-//         <div className={error}>
-//             <div className={style.inputName}>
-//                 START VALUE
-//             </div>
-//             <div>
-//                 <InputNumber callBack={ChangeStartValue}
-//                              value={startValue}
-//                              error={maxValue <= startValue}
-//                 />
-//             </div>
-//         </div>
-//     </div>
-//     <div className={style.button}>
-//         <div>
-//             <Button name={'SET'}
-//                     callBack={() => {
-//                     }}
-//                     disabled={false}/>
-//         </div>
-//     </div>
-// </div>
-// )
-// }

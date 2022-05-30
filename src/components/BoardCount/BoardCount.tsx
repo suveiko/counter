@@ -15,17 +15,11 @@ type BoardCountType = {
 
 export const BoardCount = ({counter, callBackInc, callBackReset, minValue, maxValue, status}: BoardCountType) => {
     return (
-        <div>
-            <div>
-                {status === 'error'
-                    ? <div>Incorrect value!</div>
-                    : status === 'set'
-                        ? <div>Enter values and press "SET"</div>
-                        : <Counter counter={counter} maxValue={maxValue}/>}
-            </div>
+        <div className={s.desk}>
+            <Counter counter={counter} maxValue={maxValue} status={status}/>
             <div className={s.container}>
-                <UniversalButton onClick={callBackInc} disabled={counter === maxValue} name={'inc'}/>
-                <UniversalButton onClick={callBackReset} disabled={counter === minValue} name={'reset'}/>
+                <UniversalButton onClick={callBackInc} disabled={counter === maxValue || status === 'error'} name={'inc'}/>
+                <UniversalButton onClick={callBackReset} disabled={counter === minValue || status === 'error'} name={'reset'}/>
             </div>
         </div>
     );

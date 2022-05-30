@@ -14,21 +14,6 @@ function App() {
     const [counter, setCounter] = useState(minValue)
     const [status, setStatus] = useState<StatusType>('counter')
 
-
-    // const incButton = () => {
-    //     if (maxValue === Counter) return
-    //     setCounter(Counter + 1)
-    // }
-    // const resetButton = () => setCounter(minValue)
-    //
-    // const changeMaxValue = () => {
-    //     setMaxValue(maxValue + 1)
-    // }
-    //
-    // const changeMinValue = () => {
-    //     if (minValue === maxValue) return
-    //     setMinValue(minValue + 1)
-    // }
     useEffect(() => {
         let minValueAsString = localStorage.getItem(minValueKey)
         minValueAsString && setMinValue(JSON.parse(minValueAsString))
@@ -58,27 +43,24 @@ function App() {
 
     return (
         <div className='App'>
-            <div className="desk">
-                <BoardCount
-                    counter={counter}
-                    callBackInc={incButton}
-                    callBackReset={resetButton}
-                    minValue={minValue}
-                    maxValue={maxValue}
-                    status={status}
-                />
-            </div>
-            <div className="desk">
-                <SettingsCounter
-                    counter={counter}
-                    maxValue={maxValue}
-                    minValue={minValue}
-                    changeMaxValue={changeMaxValue}
-                    changeMinValue={changeMinValue}
-                    // setStatus={setStatus}
-                    // status={status}
-                />
-            </div>
+            <BoardCount
+                counter={counter}
+                callBackInc={incButton}
+                callBackReset={resetButton}
+                minValue={minValue}
+                maxValue={maxValue}
+                status={status}
+            />
+            <SettingsCounter
+                setCounter={setCounter}
+                counter={counter}
+                maxValue={maxValue}
+                minValue={minValue}
+                changeMaxValue={changeMaxValue}
+                changeMinValue={changeMinValue}
+                setStatus={setStatus}
+                status={status}
+            />
         </div>
     );
 }
