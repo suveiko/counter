@@ -7,7 +7,7 @@
 }
 
 
-.btn {
+.desk {
     text-align: center;
     border: 2px solid #0ed3d7;
     border-radius: 20px;
@@ -18,7 +18,7 @@
     background-color: #12122a;
 }
 
-.btn:hover {
+.desk:hover {
     transform: translateY(0.2em);
     cursor: pointer;
     box-shadow: 3px 3px 10px #3a3939;
