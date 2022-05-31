@@ -22,7 +22,7 @@
     margin-bottom: 10px;
     margin-top: 5px;
     background: rgba(14, 211, 215, 0.6);
-    color: #940101;
+    color: rgba(255, 0, 0, 0.9);
     height: 50px;
 }
 
@@ -52,5 +52,5 @@
     height: 50px;
     font-size: 22px;
     text-align: center;
-    color: #940101;
+    color: rgba(255, 0, 0, 0.9)
 }
