@@ -14,6 +14,7 @@ type BoardCountType = {
 }
 
 export const BoardCount = ({counter, callBackInc, callBackReset, minValue, maxValue, status}: BoardCountType) => {
+
     return (
         <div className={s.desk}>
             <Counter counter={counter} maxValue={maxValue} status={status}/>
