@@ -24,7 +24,7 @@
 }
 
 .settingsError {
-    color: rgba(255, 0, 0, 0.9);
+    color: rgba(148, 0, 0, 0.9);
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
