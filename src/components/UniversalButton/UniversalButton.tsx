@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './UniversalButton.module.css'
 
 type ButtonCounterType = {

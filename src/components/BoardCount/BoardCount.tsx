@@ -1,8 +1,8 @@
-import React from 'react';
-import Counter from "../Counter/Counter";
-import s from './BoardCount.module.css'
 import {StatusType} from "../../App";
+import {Counter} from "../Counter/Counter";
 import {UniversalButton} from "../UniversalButton/UniversalButton";
+
+import s from './BoardCount.module.css'
 
 type BoardCountType = {
     counter: number

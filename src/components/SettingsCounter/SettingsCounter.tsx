@@ -1,8 +1,8 @@
-import React from 'react';
-import {UniversalButton} from "../UniversalButton/UniversalButton";
-import s from './SettingsCounter.module.css'
-import {UniversalInput} from "../UniversalInput/UniversalInput";
 import {StatusType} from "../../App";
+import {UniversalButton} from "../UniversalButton/UniversalButton";
+import {UniversalInput} from "../UniversalInput/UniversalInput";
+
+import s from './SettingsCounter.module.css'
 
 type SettingsCounterType = {
     maxValue: number

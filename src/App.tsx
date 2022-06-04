@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import './App.css';
+import {useEffect, useState} from 'react';
+
 import {BoardCount} from "./components/BoardCount/BoardCount";
 import {SettingsCounter} from "./components/SettingsCounter/SettingsCounter";
+
+import './App.css';
 
 export type StatusType = 'counter' | 'set' | 'error'
 

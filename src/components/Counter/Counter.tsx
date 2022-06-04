@@ -1,6 +1,6 @@
-import React from 'react';
-import s from './Counter.module.css'
 import {StatusType} from "../../App";
+
+import s from './Counter.module.css'
 
 type CounterType = {
     counter: number
@@ -8,7 +8,7 @@ type CounterType = {
     status: StatusType
 }
 
-function Counter({counter, maxValue, status}: CounterType) {
+export function Counter({counter, maxValue, status}: CounterType) {
 
     const counterStyle = counter === maxValue ? s.error : s.counter
 
@@ -20,5 +20,5 @@ function Counter({counter, maxValue, status}: CounterType) {
                 : <h1 className={counterStyle}>{counter}</h1>
     )
 }
-export default Counter
+
 
