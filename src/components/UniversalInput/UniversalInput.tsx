@@ -9,14 +9,16 @@ type UniversalInputType = {
 
 export const UniversalInput = ({value, changeValue, error}: UniversalInputType) => {
 
-    const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => changeValue(e.currentTarget.valueAsNumber)
+    const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        changeValue(e.currentTarget.valueAsNumber ? e.currentTarget.valueAsNumber : 0)
+    }
     const inputClassName = error ? s.error : s.input
 
     return (
         <input
             className={inputClassName}
             type="number"
-            value={value}
+            value={value.toFixed()}
             onChange={onChangeInputHandler}
         />
     );
