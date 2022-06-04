@@ -14,7 +14,7 @@ export function Counter({counter, maxValue, status}: CounterType) {
 
     return (
         status === 'error' ?
-            <div className={s.errorText}> Type correct value!</div>
+            <div className={s.errorText}> Type correct value, please!</div>
             : status === 'set'
                 ? <div className={s.setText}>Enter values and press "SET"</div>
                 : <h1 className={counterStyle}>{counter}</h1>

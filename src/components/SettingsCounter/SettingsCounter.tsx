@@ -33,7 +33,7 @@ export const SettingsCounter = ({
         <div className={s.desk}>
             <div className={s.settings}>
                 <div className={error}>
-                    <span className={s.inputName}>Min Value:</span>
+                    <span className={s.inputName}>Start Value:</span>
                     <UniversalInput
                         value={minValue}
                         changeValue={changeMinValue}
