@@ -37,11 +37,11 @@ function App() {
     const resetButton = () => setCounter(minValue)
 
     const changeMinValue = (value: number) => {
-        setMinValue(value)
+        value > 999 ? setMinValue(999) : setMinValue(value)
         setStatus('set')
     }
     const changeMaxValue = (value: number) => {
-        setMaxValue(value)
+        value > 999 ? setMaxValue(999) : setMaxValue(value)
         setStatus('set')
     }
 
