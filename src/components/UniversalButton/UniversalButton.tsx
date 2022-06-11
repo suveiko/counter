@@ -6,8 +6,14 @@ type ButtonCounterType = {
     name: string
 }
 
-export const UniversalButton = ({onClick, disabled, name}:ButtonCounterType) => {
+export const UniversalButton = ({onClick, disabled, name}: ButtonCounterType) => {
     return (
-        <button className={s.button} onClick={onClick} disabled={disabled}>{name}</button>
+        <button
+            className={s.button}
+            onClick={onClick}
+            disabled={disabled}
+        >
+            {name}
+        </button>
     )
 }

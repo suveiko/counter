@@ -25,9 +25,9 @@ export const SettingsCounter = ({
                                     onChangeButtonHandler
                                 }: SettingsCounterType) => {
 
-    const error = maxValue <= minValue ? s.settingsError : s.settings
+    const error = maxValue <= minValue ? s.settingsError : s.settings;
 
-    if (maxValue <= minValue || minValue < 0) setStatus('error')
+    (maxValue <= minValue || minValue < 0) && setStatus('error')
 
     return (
         <div className={s.container}>
@@ -55,7 +55,8 @@ export const SettingsCounter = ({
 
             <UniversalButton
                 onClick={onChangeButtonHandler}
-                disabled={status !== 'set'} name='SET'
+                disabled={status !== 'set'}
+                name='SET'
             />
 
         </div>
