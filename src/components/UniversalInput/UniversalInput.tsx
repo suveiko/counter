@@ -22,5 +22,5 @@ export const UniversalInput = ({value, changeValue, error}: UniversalInputType) 
             value={value.toFixed()}
             onChange={onChangeInputHandler}
         />
-    );
-};
+    )
+}

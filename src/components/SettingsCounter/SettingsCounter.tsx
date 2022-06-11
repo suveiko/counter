@@ -30,7 +30,7 @@ export const SettingsCounter = ({
     if (maxValue <= minValue || minValue < 0) setStatus('error')
 
     return (
-        <div className={s.desk}>
+        <div className={s.container}>
             <div className={s.settings}>
                 <div className={error}>
                     <span className={s.inputName}>Start Value:</span>
@@ -59,6 +59,6 @@ export const SettingsCounter = ({
             />
 
         </div>
-    );
-};
+    )
+}
 

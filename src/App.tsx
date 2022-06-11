@@ -66,7 +66,7 @@ function App() {
                 onChangeButtonHandler={onChangeButtonHandler}
             />
         </div>
-    );
+    )
 }
 
 export default App;

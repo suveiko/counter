@@ -1,15 +1,4 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    border: solid 2px #0ed3d7;
-
-    padding: 25px;
-    border-radius: 20px;
-}
-
-.desk {
+.mainContainer {
     text-align: center;
     border: 2px solid #0ed3d7;
     border-radius: 20px;
@@ -21,8 +10,21 @@
     margin-right: 40px;
 }
 
-.desk:hover {
+.mainContainer:hover {
     transform: translateY(0.2em);
     cursor: pointer;
     box-shadow: 3px 3px 10px #3a3939;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border: solid 2px #0ed3d7;
+
+    padding: 25px;
+    border-radius: 20px;
+}
+
+

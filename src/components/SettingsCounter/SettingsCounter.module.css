@@ -1,4 +1,4 @@
-.desk {
+.container {
     text-align: center;
     border: 2px solid #0ed3d7;
     border-radius: 20px;
@@ -10,7 +10,7 @@
     margin-right: 40px;
 }
 
-.desk:hover {
+.container:hover {
     transform: translateY(0.2em);
     cursor: pointer;
     box-shadow: 3px 3px 10px #3a3939;
