@@ -16,13 +16,8 @@ type SettingsCounterType = {
 }
 
 export const SettingsCounter = ({
-                                    minValue,
-                                    maxValue,
-                                    changeMaxValue,
-                                    changeMinValue,
-                                    setStatus,
-                                    status,
-                                    onChangeButtonHandler
+                                    minValue, maxValue, changeMaxValue,
+                                    changeMinValue, setStatus, status, onChangeButtonHandler
                                 }: SettingsCounterType) => {
 
     const error = maxValue <= minValue ? s.settingsError : s.settings;
@@ -30,6 +25,7 @@ export const SettingsCounter = ({
     (maxValue <= minValue || minValue < 0) && setStatus('error')
 
     return (
+
         <div className={s.container}>
             <div className={s.settings}>
                 <div className={error}>

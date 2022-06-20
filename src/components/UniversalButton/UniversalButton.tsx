@@ -7,6 +7,7 @@ type ButtonCounterType = {
 }
 
 export const UniversalButton = ({onClick, disabled, name}: ButtonCounterType) => {
+
     return (
         <button
             className={s.button}
