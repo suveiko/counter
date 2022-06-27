@@ -1,8 +1,12 @@
+import {useDispatch} from "react-redux";
+
+import {setErrorAC} from "../../redux/counter-reducer";
 import {StatusType} from "../../App";
 import {UniversalButton} from "../UniversalButton/UniversalButton";
 import {UniversalInput} from "../UniversalInput/UniversalInput";
 
 import s from './SettingsCounter.module.css'
+
 
 type SettingsCounterType = {
     maxValue: number
@@ -10,19 +14,20 @@ type SettingsCounterType = {
     changeMaxValue: (value: number) => void
     changeMinValue: (value: number) => void
     counter: number
-    setStatus: (status: StatusType) => void
     status: StatusType
     onChangeButtonHandler: () => void
 }
 
 export const SettingsCounter = ({
                                     minValue, maxValue, changeMaxValue,
-                                    changeMinValue, setStatus, status, onChangeButtonHandler
+                                    changeMinValue, status, onChangeButtonHandler
                                 }: SettingsCounterType) => {
+
+    const dispatch = useDispatch()
 
     const error = maxValue <= minValue ? s.settingsError : s.settings;
 
-    (maxValue <= minValue || minValue < 0) && setStatus('error')
+    (maxValue <= minValue || minValue < 0) && dispatch(setErrorAC())
 
     return (
 
