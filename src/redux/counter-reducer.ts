@@ -1,5 +1,23 @@
 import {StatusType} from "../App";
 
+
+type IncrementAT = ReturnType<typeof incrementAC>
+type ResetAT = ReturnType<typeof resetAC>
+type SetMaxValueAT = ReturnType<typeof setMaxValueAC>
+type SetMinValueAT = ReturnType<typeof setMinValueAC>
+type SetSettingAT = ReturnType<typeof setSettingAC>
+type SetErrorAT = ReturnType<typeof setErrorAC>
+type SetCounterAT = ReturnType<typeof setCounterAC>
+
+type ActionType = IncrementAT
+    | ResetAT
+    | SetMaxValueAT
+    | SetMinValueAT
+    | SetSettingAT
+    | SetErrorAT
+    | SetCounterAT
+
+
 const initialState = {
     count: 0,
     minValue: 0,
@@ -8,16 +26,17 @@ const initialState = {
 }
 type InitialStateType = typeof initialState
 
-export const counterReducer = (state: InitialStateType = initialState, action: any): InitialStateType => {
+
+export const counterReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
     switch (action.type) {
         case 'INCREMENT':
             return {...state, count: state.count + 1}
-        case 'DECREMENT':
-            return {...state, count: state.maxValue - 1}
+        case 'RESET' :
+            return {...state, count: action.minValue}
         case 'SET_MAX_VALUE':
-            return {...state, maxValue: state.maxValue}
+            return {...state, maxValue: action.maxValue}
         case 'SET_MIN_VALUE' :
-            return {...state, minValue: state.minValue}
+            return {...state, minValue: action.minValue}
         case 'SET_SETTING':
             return {...state, status: 'set'}
         case 'SET_ERROR':
@@ -28,3 +47,11 @@ export const counterReducer = (state: InitialStateType = initialState, action: a
             return state
     }
 }
+
+export const incrementAC = () => ({type: 'INCREMENT'}) as const
+export const resetAC = (minValue: number) => ({type: 'RESET', minValue}) as const
+export const setMaxValueAC = (maxValue: number) => ({type: 'SET_MAX_VALUE', maxValue}) as const
+export const setMinValueAC = (minValue: number) => ({type: 'SET_MIN_VALUE', minValue}) as const
+export const setSettingAC = () => ({type: 'SET_SETTING'}) as const
+export const setErrorAC = () => ({type: 'SET_ERROR'}) as const
+export const setCounterAC = () => ({type: 'SET_COUNTER'}) as const
