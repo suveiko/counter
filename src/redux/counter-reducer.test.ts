@@ -2,6 +2,7 @@ import {counterReducer, incrementAC, InitialStateType, resetAC} from "./counter-
 
 import {StatusType} from "../App";
 
+
 test('counter should increment + 1', () => {
 
     const startState: InitialStateType = {

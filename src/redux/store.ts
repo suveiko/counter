@@ -1,7 +1,13 @@
 import {createStore} from "redux";
 
 import {counterReducer} from "./counter-reducer";
+import {loadState, saveState} from "../storage/localStorage";
 
 
 export type AppRootState = ReturnType<typeof counterReducer>
-export const store = createStore(counterReducer)
+
+const persistedState = loadState();
+export const store = createStore(
+    counterReducer,
+    persistedState);
+store.subscribe(() => saveState(store.getState()));
