@@ -24,7 +24,7 @@ const initialState = {
     maxValue: 5,
     status: 'set' as StatusType
 }
-type InitialStateType = typeof initialState
+export type InitialStateType = typeof initialState
 
 
 export const counterReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
