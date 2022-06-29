@@ -1,6 +1,10 @@
+*{
+    background-color: #12122a;
+}
+
 .App {
-    width: 80vw;
-    height: 80vh;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

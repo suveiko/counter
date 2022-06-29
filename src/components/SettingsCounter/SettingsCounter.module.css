@@ -13,7 +13,7 @@
 .container:hover {
     transform: translateY(0.2em);
     cursor: pointer;
-    box-shadow: 3px 3px 10px #3a3939;
+    box-shadow: 4px 4px 10px #3a3939;
 }
 
 .settings {
