@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
 
-import {setErrorAC} from "../../redux/counter-reducer";
+import {setErrorAC} from "../../state/counter-reducer";
 import {StatusType} from "../../App";
 import {UniversalButton} from "../UniversalButton/UniversalButton";
 import {UniversalInput} from "../UniversalInput/UniversalInput";

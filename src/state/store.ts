@@ -1,7 +1,7 @@
 import {createStore} from "redux";
 
 import {counterReducer} from "./counter-reducer";
-import {loadState, saveState} from "../storage/localStorage";
+import {loadState, saveState} from "../utils/localStorage";
 
 
 export type AppRootState = ReturnType<typeof counterReducer>

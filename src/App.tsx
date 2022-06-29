@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 
-import {AppRootState} from "./redux/store";
-import {incrementAC, resetAC, setCounterAC, setMaxValueAC, setMinValueAC, setSettingAC} from "./redux/counter-reducer";
+import {AppRootState} from "./state/store";
+import {incrementAC, resetAC, setCounterAC, setMaxValueAC, setMinValueAC, setSettingAC} from "./state/counter-reducer";
 
 import {BoardCount} from "./components/BoardCount/BoardCount";
 import {SettingsCounter} from "./components/SettingsCounter/SettingsCounter";
