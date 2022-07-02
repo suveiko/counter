@@ -1,5 +1,6 @@
 import s from './UniversalButton.module.css'
 
+
 type ButtonCounterType = {
     onClick: () => void
     disabled: boolean

@@ -2,6 +2,7 @@ import {ChangeEvent} from 'react';
 
 import s from './UniversalInput.module.css'
 
+
 type UniversalInputType = {
     value: number
     changeValue: (value: number) => void

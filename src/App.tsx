@@ -11,6 +11,7 @@ import './App.css';
 
 export type StatusType = 'counter' | 'set' | 'error'
 
+
 function App() {
 
     const minValue = useSelector<AppRootState, number>(state => state.minValue)

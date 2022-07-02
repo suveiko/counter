@@ -5,6 +5,7 @@ import {UniversalButton} from "../UniversalButton/UniversalButton";
 
 import s from './BoardCount.module.css'
 
+
 type BoardCountType = {
     counter: number
     callBackInc: () => void
