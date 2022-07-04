@@ -7,6 +7,7 @@ import {BoardCount} from "./components/BoardCount/BoardCount";
 import {SettingsCounter} from "./components/SettingsCounter/SettingsCounter";
 
 import './App.css';
+import {useCallback} from "react";
 
 
 export type StatusType = 'counter' | 'set' | 'error'
@@ -20,22 +21,26 @@ function App() {
     const counter = useSelector<AppRootState, number>(state => state.counter)
     const dispatch = useDispatch()
 
-    const onChangeButtonHandler = () => {
+    const onChangeButtonHandler = useCallback(() => {
         dispatch(setCounterAC())
         dispatch(resetAC(minValue))
-    }
+    },[minValue,dispatch])
 
-    const incButton = () => counter < maxValue && dispatch(incrementAC())
-    const resetButton = () => dispatch(resetAC(minValue))
+    const incButton = useCallback(() => {
+        counter < maxValue && dispatch(incrementAC())
+    },[counter,maxValue,dispatch])
+    const resetButton = useCallback(() => {
+        dispatch(resetAC(minValue))
+    },[minValue,dispatch])
 
-    const changeMinValue = (value: number) => {
+    const changeMinValue = useCallback((value: number) => {
         value > 999 ? dispatch(setMinValueAC(999)) : dispatch(setMinValueAC(value))
         dispatch(setSettingAC())
-    }
-    const changeMaxValue = (value: number) => {
+    },[dispatch])
+    const changeMaxValue = useCallback((value: number) => {
         value > 999 ? dispatch(setMaxValueAC(999)): dispatch(setMaxValueAC(value))
         dispatch(setSettingAC())
-    }
+    },[dispatch])
 
     return (
         <div className='App'>

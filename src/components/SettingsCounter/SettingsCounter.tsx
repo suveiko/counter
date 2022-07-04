@@ -6,6 +6,7 @@ import {UniversalButton} from "../UniversalButton/UniversalButton";
 import {UniversalInput} from "../UniversalInput/UniversalInput";
 
 import s from './SettingsCounter.module.css'
+import React from "react";
 
 
 type SettingsCounterType = {
@@ -18,7 +19,7 @@ type SettingsCounterType = {
     onChangeButtonHandler: () => void
 }
 
-export const SettingsCounter = ({
+export const SettingsCounter = React.memo(({
                                     minValue, maxValue, changeMaxValue,
                                     changeMinValue, status, onChangeButtonHandler
                                 }: SettingsCounterType) => {
@@ -62,5 +63,5 @@ export const SettingsCounter = ({
 
         </div>
     )
-}
+})
 
