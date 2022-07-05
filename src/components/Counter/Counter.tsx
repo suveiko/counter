@@ -1,7 +1,9 @@
+import React from "react";
+
 import {StatusType} from "../../App";
 
 import s from './Counter.module.css'
-import React from "react";
+
 
 
 type CounterType = {

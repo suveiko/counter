@@ -19,6 +19,7 @@ type SettingsCounterType = {
     onChangeButtonHandler: () => void
 }
 
+
 export const SettingsCounter = React.memo(({
                                     minValue, maxValue, changeMaxValue,
                                     changeMinValue, status, onChangeButtonHandler
