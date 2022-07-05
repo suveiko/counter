@@ -9,6 +9,7 @@ type UniversalInputType = {
     error: boolean
 }
 
+
 export const UniversalInput = React.memo(({value, changeValue, error}: UniversalInputType) => {
 
     const onChangeInputHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {

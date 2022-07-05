@@ -5,9 +5,8 @@ import {StatusType} from "../../App";
 import s from './Counter.module.css'
 
 
-
-type CounterType = {
-    counter: number
+export type CounterType = {
+    counter?: number
     maxValue: number
     status: StatusType
 }

@@ -53,7 +53,6 @@ function App() {
                 status={status}
             />
             <SettingsCounter
-                counter={counter}
                 maxValue={maxValue}
                 minValue={minValue}
                 changeMaxValue={changeMaxValue}

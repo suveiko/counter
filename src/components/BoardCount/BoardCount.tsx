@@ -1,22 +1,16 @@
 import React from "react";
 
-import {StatusType} from "../../App";
-
-import {Counter} from "../Counter/Counter";
+import {Counter, CounterType} from "../Counter/Counter";
 import {UniversalButton} from "../UniversalButton/UniversalButton";
 
 import s from './BoardCount.module.css'
 
 
-
 type BoardCountType = {
-    counter: number
     callBackInc: () => void
     callBackReset: () => void
     minValue: number
-    maxValue: number
-    status: StatusType
-}
+} & CounterType
 
 
 export const BoardCount = React.memo(({

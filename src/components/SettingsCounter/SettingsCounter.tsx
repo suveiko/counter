@@ -1,23 +1,21 @@
+import React from "react";
 import {useDispatch} from "react-redux";
 
 import {setErrorAC} from "../../state/counter-reducer";
-import {StatusType} from "../../App";
+
 import {UniversalButton} from "../UniversalButton/UniversalButton";
 import {UniversalInput} from "../UniversalInput/UniversalInput";
+import {CounterType} from "../Counter/Counter";
 
 import s from './SettingsCounter.module.css'
-import React from "react";
 
 
 type SettingsCounterType = {
-    maxValue: number
     minValue: number
     changeMaxValue: (value: number) => void
     changeMinValue: (value: number) => void
-    counter: number
-    status: StatusType
     onChangeButtonHandler: () => void
-}
+} & CounterType
 
 
 export const SettingsCounter = React.memo(({

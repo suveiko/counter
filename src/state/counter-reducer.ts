@@ -18,16 +18,15 @@ type ActionType = IncrementAT
     | SetCounterAT
 
 
-const initialState = {
+export const initialState = {
     counter: 0,
     minValue: 0,
     maxValue: 5,
     status: 'set' as StatusType
 }
-export type InitialStateType = typeof initialState
 
 
-export const counterReducer = (state: InitialStateType = initialState, action: ActionType): InitialStateType => {
+export const counterReducer = (state: typeof initialState = initialState, action: ActionType): typeof initialState => {
     switch (action.type) {
         case 'INCREMENT':
             return {...state, counter: state.counter + 1}
