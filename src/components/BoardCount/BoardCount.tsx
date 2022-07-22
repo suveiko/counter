@@ -1,4 +1,4 @@
-import React from "react";
+import {memo} from "react";
 
 import {Counter, CounterType} from "../Counter/Counter";
 import {UniversalButton} from "../UniversalButton/UniversalButton";
@@ -13,11 +13,11 @@ type BoardCountType = {
 } & CounterType
 
 
-export const BoardCount = React.memo(({
-                                          counter, callBackInc,
-                                          callBackReset, minValue,
-                                          maxValue, status
-                                      }: BoardCountType) => {
+export const BoardCount = memo(({
+                                    counter, callBackInc,
+                                    callBackReset, minValue,
+                                    maxValue, status
+                                }: BoardCountType) => {
 
     return (
         <div className={s.mainContainer}>

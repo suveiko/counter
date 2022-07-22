@@ -1,6 +1,5 @@
 import {counterReducer, incrementAC, initialState, resetAC} from "./counter-reducer";
 
-
 import {StatusType} from "../App";
 
 

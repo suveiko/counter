@@ -1,4 +1,4 @@
-import React from "react";
+import {memo} from "react";
 import {useDispatch} from "react-redux";
 
 import {setErrorAC} from "../../state/counter-reducer";
@@ -18,10 +18,10 @@ type SettingsCounterType = {
 } & CounterType
 
 
-export const SettingsCounter = React.memo(({
-                                    minValue, maxValue, changeMaxValue,
-                                    changeMinValue, status, onChangeButtonHandler
-                                }: SettingsCounterType) => {
+export const SettingsCounter = memo(({
+                                         minValue, maxValue, changeMaxValue,
+                                         changeMinValue, status, onChangeButtonHandler
+                                     }: SettingsCounterType) => {
 
     const dispatch = useDispatch()
 

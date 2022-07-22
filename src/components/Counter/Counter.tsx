@@ -1,4 +1,4 @@
-import React from "react";
+import {memo} from "react";
 
 import {StatusType} from "../../App";
 
@@ -12,7 +12,7 @@ export type CounterType = {
 }
 
 
-export const Counter = React.memo(({counter, maxValue, status}: CounterType) => {
+export const Counter = memo(({counter, maxValue, status}: CounterType) => {
 
     const counterStyle = counter === maxValue ? s.error : s.counter
 

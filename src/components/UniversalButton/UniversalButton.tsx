@@ -1,4 +1,4 @@
-import React from "react";
+import {memo} from "react";
 
 import s from './UniversalButton.module.css'
 
@@ -10,7 +10,7 @@ type ButtonCounterType = {
 }
 
 
-export const UniversalButton = React.memo(({onClick, disabled, name}: ButtonCounterType) => {
+export const UniversalButton = memo(({onClick, disabled, name}: ButtonCounterType) => {
 
     return (
         <button

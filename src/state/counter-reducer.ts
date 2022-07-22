@@ -1,21 +1,13 @@
 import {StatusType} from "../App";
 
 
-type IncrementAT = ReturnType<typeof incrementAC>
-type ResetAT = ReturnType<typeof resetAC>
-type SetMaxValueAT = ReturnType<typeof setMaxValueAC>
-type SetMinValueAT = ReturnType<typeof setMinValueAC>
-type SetSettingAT = ReturnType<typeof setSettingAC>
-type SetErrorAT = ReturnType<typeof setErrorAC>
-type SetCounterAT = ReturnType<typeof setCounterAC>
-
-type ActionType = IncrementAT
-    | ResetAT
-    | SetMaxValueAT
-    | SetMinValueAT
-    | SetSettingAT
-    | SetErrorAT
-    | SetCounterAT
+type ActionType = ReturnType<typeof incrementAC>
+    | ReturnType<typeof resetAC>
+    | ReturnType<typeof setMaxValueAC>
+    | ReturnType<typeof setMinValueAC>
+    | ReturnType<typeof setSettingAC>
+    | ReturnType<typeof setErrorAC>
+    | ReturnType<typeof setCounterAC>
 
 
 export const initialState = {
