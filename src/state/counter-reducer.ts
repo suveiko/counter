@@ -1,13 +1,13 @@
 import {StatusType} from "../App";
 
 
-type ActionType = ReturnType<typeof incrementAC>
-    | ReturnType<typeof resetAC>
-    | ReturnType<typeof setMaxValueAC>
-    | ReturnType<typeof setMinValueAC>
-    | ReturnType<typeof setSettingAC>
-    | ReturnType<typeof setErrorAC>
-    | ReturnType<typeof setCounterAC>
+type ActionType = ReturnType<typeof increment>
+    | ReturnType<typeof reset>
+    | ReturnType<typeof setMaxValue>
+    | ReturnType<typeof setMinValue>
+    | ReturnType<typeof setSetting>
+    | ReturnType<typeof setError>
+    | ReturnType<typeof setCounter>
 
 
 export const initialState = {
@@ -39,10 +39,11 @@ export const counterReducer = (state: typeof initialState = initialState, action
     }
 }
 
-export const incrementAC = () => ({type: 'INCREMENT'}) as const
-export const resetAC = (minValue: number) => ({type: 'RESET', minValue}) as const
-export const setMaxValueAC = (maxValue: number) => ({type: 'SET_MAX_VALUE', maxValue}) as const
-export const setMinValueAC = (minValue: number) => ({type: 'SET_MIN_VALUE', minValue}) as const
-export const setSettingAC = () => ({type: 'SET_SETTING'}) as const
-export const setErrorAC = () => ({type: 'SET_ERROR'}) as const
-export const setCounterAC = () => ({type: 'SET_COUNTER'}) as const
+
+export const increment = () => ({type: 'INCREMENT'}) as const
+export const reset = (minValue: number) => ({type: 'RESET', minValue}) as const
+export const setMaxValue = (maxValue: number) => ({type: 'SET_MAX_VALUE', maxValue}) as const
+export const setMinValue = (minValue: number) => ({type: 'SET_MIN_VALUE', minValue}) as const
+export const setSetting = () => ({type: 'SET_SETTING'}) as const
+export const setError = () => ({type: 'SET_ERROR'}) as const
+export const setCounter = () => ({type: 'SET_COUNTER'}) as const

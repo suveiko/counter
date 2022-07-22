@@ -1,4 +1,4 @@
-import {counterReducer, incrementAC, initialState, resetAC} from "./counter-reducer";
+import {counterReducer, increment, initialState, reset} from "./counter-reducer";
 
 import {StatusType} from "../App";
 
@@ -12,7 +12,7 @@ test('counter should increment + 1', () => {
         status: 'set' as StatusType
     }
 
-    const newState = counterReducer(startState, incrementAC())
+    const newState = counterReducer(startState, increment())
 
     expect(newState.counter).toBe(1)
 })
@@ -26,7 +26,7 @@ test('counter should reset to minValue', () => {
         status: 'set' as StatusType
     }
 
-    const newState = counterReducer(startState, resetAC(startState.minValue))
+    const newState = counterReducer(startState, reset(startState.minValue))
 
     expect(newState.minValue).toBe(3)
 })

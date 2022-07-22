@@ -1,7 +1,7 @@
-import {memo} from "react";
+import {memo, useCallback} from "react";
 import {useDispatch} from "react-redux";
 
-import {setErrorAC} from "../../state/counter-reducer";
+import {reset, setCounter, setError, setMaxValue, setMinValue, setSetting} from "../../state/counter-reducer";
 
 import {UniversalButton} from "../UniversalButton/UniversalButton";
 import {UniversalInput} from "../UniversalInput/UniversalInput";
@@ -12,22 +12,31 @@ import s from './SettingsCounter.module.css'
 
 type SettingsCounterType = {
     minValue: number
-    changeMaxValue: (value: number) => void
-    changeMinValue: (value: number) => void
-    onChangeButtonHandler: () => void
 } & CounterType
 
 
-export const SettingsCounter = memo(({
-                                         minValue, maxValue, changeMaxValue,
-                                         changeMinValue, status, onChangeButtonHandler
-                                     }: SettingsCounterType) => {
+export const SettingsCounter = memo(({minValue, maxValue, status}: SettingsCounterType) => {
 
     const dispatch = useDispatch()
 
+    const onChangeButtonHandler = useCallback(() => {
+        dispatch(setCounter())
+        dispatch(reset(minValue))
+    }, [minValue, dispatch])
+
+    const changeMinValue = useCallback((value: number) => {
+        value > 999 ? dispatch(setMinValue(999)) : dispatch(setMinValue(value))
+        dispatch(setSetting())
+    }, [dispatch])
+
+    const changeMaxValue = useCallback((value: number) => {
+        value > 999 ? dispatch(setMaxValue(999)) : dispatch(setMaxValue(value))
+        dispatch(setSetting())
+    }, [dispatch])
+
     const error = maxValue <= minValue ? s.settingsError : s.settings;
 
-    (maxValue <= minValue || minValue < 0) && dispatch(setErrorAC())
+    (maxValue <= minValue || minValue < 0) && dispatch(setError())
 
     return (
 

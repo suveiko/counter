@@ -1,4 +1,4 @@
-import {ChangeEvent, memo, useCallback} from 'react';
+import {ChangeEvent, memo} from 'react';
 
 import s from './UniversalInput.module.css'
 
@@ -11,10 +11,10 @@ type UniversalInputType = {
 
 
 export const UniversalInput = memo(({value, changeValue, error}: UniversalInputType) => {
-
-    const onChangeInputHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    
+    const onChangeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         changeValue(e.currentTarget.valueAsNumber ? e.currentTarget.valueAsNumber : 0)
-    }, [changeValue])
+    }
     const inputClassName = error ? s.error : s.input
 
     return (
