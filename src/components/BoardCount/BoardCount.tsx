@@ -1,4 +1,4 @@
-import {memo, useCallback} from "react";
+import {useCallback} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {Counter, CounterType} from "../Counter/Counter";
@@ -15,7 +15,7 @@ type BoardCountType = {
 } & CounterType
 
 
-export const BoardCount = memo(({minValue, maxValue, status}: BoardCountType) => {
+export const BoardCount =({minValue, maxValue, status}: BoardCountType) => {
 
     const counter = useSelector<AppRootState, number>(state => state.counter)
     const dispatch = useDispatch()
@@ -44,4 +44,4 @@ export const BoardCount = memo(({minValue, maxValue, status}: BoardCountType) =>
             </div>
         </div>
     )
-})
+}

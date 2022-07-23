@@ -1,4 +1,3 @@
-import {memo, useCallback} from "react";
 import {useDispatch} from "react-redux";
 
 import {reset, setCounter, setError, setMaxValue, setMinValue, setSetting} from "../../state/counter-reducer";
@@ -15,24 +14,24 @@ type SettingsCounterType = {
 } & CounterType
 
 
-export const SettingsCounter = memo(({minValue, maxValue, status}: SettingsCounterType) => {
+export const SettingsCounter = ({minValue, maxValue, status}: SettingsCounterType) => {
 
     const dispatch = useDispatch()
 
-    const onChangeButtonHandler = useCallback(() => {
+    const onChangeButtonHandler = () => {
         dispatch(setCounter())
         dispatch(reset(minValue))
-    }, [minValue, dispatch])
+    }
 
-    const changeMinValue = useCallback((value: number) => {
+    const changeMinValue = (value: number) => {
         value > 999 ? dispatch(setMinValue(999)) : dispatch(setMinValue(value))
         dispatch(setSetting())
-    }, [dispatch])
+    }
 
-    const changeMaxValue = useCallback((value: number) => {
+    const changeMaxValue = (value: number) => {
         value > 999 ? dispatch(setMaxValue(999)) : dispatch(setMaxValue(value))
         dispatch(setSetting())
-    }, [dispatch])
+    }
 
     const error = maxValue <= minValue ? s.settingsError : s.settings;
 
@@ -71,5 +70,5 @@ export const SettingsCounter = memo(({minValue, maxValue, status}: SettingsCount
 
         </div>
     )
-})
+}
 

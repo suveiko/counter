@@ -1,5 +1,3 @@
-import {memo} from "react";
-
 import {StatusType} from "../../App";
 
 import s from './Counter.module.css'
@@ -12,7 +10,7 @@ export type CounterType = {
 }
 
 
-export const Counter = memo(({counter, maxValue, status}: CounterType) => {
+export const Counter =({counter, maxValue, status}: CounterType) => {
 
     const counterStyle = counter === maxValue ? s.error : s.counter
 
@@ -23,6 +21,6 @@ export const Counter = memo(({counter, maxValue, status}: CounterType) => {
                 ? <div className={s.setText}>Enter values and press "SET"</div>
                 : <h1 className={counterStyle}>{counter}</h1>
     )
-})
+}
 
 
